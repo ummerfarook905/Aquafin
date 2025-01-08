@@ -20,31 +20,33 @@ public class UserController {
         return "index";
     }
 
+    // @GetMapping("/logout")
+    // public String logout(){
+    //     return "index";
+    // }
+
+    
+
     @GetMapping("/register")
     public String getRegistrationPage(@ModelAttribute("user") UserDto userDto){
         return "register";
     }
 
     @PostMapping("/register")
-    public String getRegistrationPage(
-         @ModelAttribute("user") UserDto userDto,
-        Model model){
-            if(userService.hasErrors()){
-                model.addAttribute("error", "Please check your input");
-                return "register";
-            }
-            try{
-                userService.save(userDto);
-                model.addAttribute("success", "Registration successful! Please login.");
-                return "login";
-            }
-            catch(Exception e){
-                model.addAttribute("error", "Registration failed: " + e.getMessage());
-                return "register";
-
-            }
-
+    public String registerUser(
+        @ModelAttribute("user") UserDto userDto,
+        Model model
+    ) {
+        try {
+            userService.save(userDto);
+            model.addAttribute("message", "Registration successful!");
+            return "login";
+        } catch (Exception e) {
+            model.addAttribute("message", "Registration failed: " + e.getMessage());
+            return "register";
         }
+    }
+    
 
     // @PostMapping("/register")
     // public String getRegistartionPage(@ModelAttribute("user")UserDto userDto,Model model){
@@ -62,6 +64,7 @@ public class UserController {
     public String accessDenied() {
         return "error/access-denied";
     }
+    
 
 
 

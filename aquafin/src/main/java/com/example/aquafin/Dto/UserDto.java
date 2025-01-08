@@ -1,20 +1,11 @@
 package com.example.aquafin.Dto;
 
 public class UserDto {
-
     private String email;
     private String password;
-    private String role;
     private String fullname;
 
-    public UserDto(String email, String password, String role, String fullname){
-        super();
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.fullname = fullname;
-    }
-
+    // Getters and Setters
     public String getEmail() {
         return email;
     }
@@ -38,14 +29,4 @@ public class UserDto {
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-
 }
