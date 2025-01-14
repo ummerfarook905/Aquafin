@@ -13,6 +13,7 @@ public class User {
 
     private String email;
     private String password;
+    private String role;
     private String fullname;
 
     // Default constructor (required for JPA)
@@ -20,10 +21,11 @@ public class User {
     }
 
     // Constructor with parameters
-    public User(String email, String password, String fullname) {
+    public User(String email, String password, String fullname, String role) {
         this.email = email;
         this.password = password;
         this.fullname = fullname;
+        this.role = role;
     }
 
     // Getters and Setters
@@ -57,5 +59,13 @@ public class User {
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

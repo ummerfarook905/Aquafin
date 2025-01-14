@@ -8,5 +8,6 @@ import com.example.aquafin.models.User;
 public interface UserService {
     User save(UserDto userDto);
     List<User> getAllUsers();
+    List<User> getUsersByRole(String role);
     User findByEmail(String email);
 }

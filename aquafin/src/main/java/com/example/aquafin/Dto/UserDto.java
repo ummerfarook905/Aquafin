@@ -4,8 +4,17 @@ public class UserDto {
     private String email;
     private String password;
     private String fullname;
+    private String role;
+    
+     // Getters and Setters
+    public String getRole() {
+        return role;
+    }
 
-    // Getters and Setters
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public String getEmail() {
         return email;
     }

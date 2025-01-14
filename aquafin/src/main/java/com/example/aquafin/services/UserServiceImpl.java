@@ -24,9 +24,16 @@ public class UserServiceImpl implements UserService {
         User user = new User(
             userDto.getEmail(),
             passwordEncoder.encode(userDto.getPassword()),
+            userDto.getRole(),
             userDto.getFullname()
         );
+        user.setRole("USER");
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getUsersByRole(String role){
+        return userRepository.findByRole(role);
     }
 
     @Override

@@ -19,14 +19,7 @@ public class UserController {
     public String index(){
         return "index";
     }
-
-    // @GetMapping("/logout")
-    // public String logout(){
-    //     return "index";
-    // }
-
     
-
     @GetMapping("/register")
     public String getRegistrationPage(@ModelAttribute("user") UserDto userDto){
         return "register";
@@ -47,17 +40,14 @@ public class UserController {
         }
     }
     
-
-    // @PostMapping("/register")
-    // public String getRegistartionPage(@ModelAttribute("user")UserDto userDto,Model model){
-    //     userService.save(userDto);
-    //     model.addAttribute("message","Registered successfully");
-    //     return "register";
-    // }
-
     @GetMapping("/login")
     public String login(){
         return "login";
+    }
+    
+    @GetMapping("/admin-page")
+    public String admin(){
+        return "admin";
     }
 
     @GetMapping("/access-denied")
